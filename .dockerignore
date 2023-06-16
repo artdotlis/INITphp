@@ -1,0 +1,15 @@
+*
+
+!/bin
+!/src
+!/configs
+
+!/extra
+!/assets
+
+!Makefile
+!/package.json
+!/package-lock.json
+
+!README.md
+!LICENSE
