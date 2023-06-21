@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+NVM_DIR="$HOME/.nvm"
+NPM="[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && npm"
+
+eval "$NPM" run-script lint:commit

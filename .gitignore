@@ -5,10 +5,17 @@ extra/
 assets/**/placeholder.txt
 public/
 configs/src/
-src/initts/js/
+src/initphp/js/
 *.cache
 /tsconfig.json
 .VSCodeCounter/
+
+# ---> Composer
+composer.phar
+vendor/
+report/
+phploc.phar
+/composer.json
 
 # https://github.com/github/gitignore
 # CC0 1.0 Universal
@@ -170,3 +177,11 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# ---> PHP
+# gitignore for the PHP Codesniffer framework
+# website: https://github.com/squizlabs/PHP_CodeSniffer
+#
+# Recommended template: PHP.gitignore
+
+/wpcs/*

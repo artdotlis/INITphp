@@ -1,0 +1,53 @@
+{
+    "compilerOptions": {
+        /* Projects */
+        "incremental": false,
+        "composite": false,
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        /* Language and Environment */
+        "target": "es6",
+        "noLib": false,
+        "useDefineForClassFields": true,
+        /* Modules */
+        "module": "es2020",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "rootDir": "../../src/initphp/ts",
+        "preserveSymlinks": true,
+        /* Emit */
+        "outDir": "../../src/initphp/js",
+        "removeComments": false,
+        "esModuleInterop": true,
+        "isolatedModules": false,
+        "forceConsistentCasingInFileNames": true,
+        "typeRoots": ["../../node_modules/@types", "../../src/initphp/ts/@types"],
+        /* Type Checking */
+        "strict": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "strictPropertyInitialization": true,
+        "noImplicitThis": true,
+        "useUnknownInCatchVariables": true,
+        "alwaysStrict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "exactOptionalPropertyTypes": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": false,
+        "noUncheckedIndexedAccess": true,
+        "noImplicitOverride": true,
+        "noPropertyAccessFromIndexSignature": true,
+        "skipLibCheck": true,
+        "checkJs": false,
+        "paths": {
+            "@initphp/src/*": ["../../src/initphp/ts/*"],
+            "@initphp/root/*": ["../../src/initphp/*"],
+            "@extra/*": ["../../extra/*"],
+            "@configs/*": ["../../configs/*"],
+            "@assets/*": ["../../assets/*"]
+        }
+    },
+    "include": ["../../src/initphp/ts/**/*"]
+}

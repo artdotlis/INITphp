@@ -5,13 +5,14 @@
 
 ---
 
-Initial bare-bone PHP + TypeScript project.
+Initial bare-bone PHP + TypeScript full-stack project.
 
 ## Requirements (development)
 
 ### Default
 
 -   GNU/Linux
+-   PHP: ~8.2
 
 ### Dev Container
 

@@ -1,0 +1,11 @@
+version: '3'
+services:
+    deploy:
+        build:
+            context: .
+            dockerfile: ./Dockerfile
+        volumes:
+            - ./configs/dev/api_nginx.conf:/etc/nginx/conf.d/default.conf
+            - ./configs/dev/php_fpm.conf:/etc/php82/php-fpm.d/initphp.conf
+        ports:
+            - 8036:80

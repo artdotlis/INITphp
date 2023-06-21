@@ -1,0 +1,15 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+PCO="$(dirname "$0")/../src/initphp/ts/configs/project.js"
+VENDOR="$(dirname "$0")/../src/initphp/php/vendor/bin"
+NVM_DIR="$HOME/.nvm"
+NPM="[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && npm"
+export PATH="$PATH:$VENDOR"
+
+make actProd
+git add "$PCO"
+
+echo "$PATH"
+
+eval "$NPM" run-script build
+eval "$NPM" run-script lint

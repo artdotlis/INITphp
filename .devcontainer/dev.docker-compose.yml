@@ -1,0 +1,30 @@
+version: '3'
+services:
+    dev:
+        user: vscode
+        build:
+            context: .
+            dockerfile: .devcontainer/dev.Dockerfile
+            args:
+                - USERNAME=vscode
+                - USER_UID=1000
+                - USER_GID=1000
+                - WORK_DIR=/workspace
+        volumes:
+            - static-content:/workspace/public
+            - .:/workspace:cached
+            - ~/.gitconfig:/etc/gitconfig
+    nginx:
+        user: root
+        build:
+            context: .
+            dockerfile: .devcontainer/php.Dockerfile
+        volumes:
+            - static-content:/var/www/
+            - ./configs/dev/api_nginx.conf:/etc/nginx/conf.d/default.conf
+            - ./configs/dev/php_fpm.conf:/etc/php82/php-fpm.d/initphp.conf
+        ports:
+            - 8035:80
+
+volumes:
+    static-content:

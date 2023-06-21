@@ -1,0 +1,8 @@
+# Ignore directories/files:
+node_modules
+package-lock.json
+**/src/initphp/js
+**/src/initphp/php
+public
+extra
+webpack-config.js
