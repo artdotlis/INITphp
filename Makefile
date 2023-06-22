@@ -45,7 +45,8 @@ setupNode:
 
 setupComposer:
 	php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-	php -r "if (hash_file('sha384', 'composer-setup.php') === '55ce33d7678c5a611085589f1f3ddf8b3c52d662cd01d4ba75c0ee0459970c2200a51f492d557530c71c15d8dba01eae') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+	[ $(shell sha384sum composer-setup.php | cut -f 1 -d ' ') == 'e21205b207c3ff031906575712edab6f13eb0b361f2085f1f1237b7126d785e826a450292b6cfd1d64d92e6563bbde02' ] \
+	|| echo -e "\033[0;31mInstaller corrupt - consider updating sha384\033[0m";
 	php composer-setup.php
 	php -r "unlink('composer-setup.php');"
 	mv composer.phar $(COM_BIN)
@@ -63,9 +64,15 @@ runAct:
 
 actDev:	
 	sed -i -E 's/(production\s*:)\s*[falstrue]+,/\1 false,/g' $(PCO)
+	$(eval NODE_ENV=development)
+	$(eval POST=bash bin/deploy/post.sh)
+	$(eval NPM=[ -s $(NVM_DIR)/nvm.sh ] && \. $(NVM_DIR)/nvm.sh && NODE_ENV=$(NODE_ENV) npm)
 
 actProd:
 	sed -i -E 's/(production\s*:)\s*[falstrue]+,/\1 true,/g' $(PCO)
+	$(eval NODE_ENV=production)
+	$(eval POST=echo "no post in production")
+	$(eval NPM=[ -s $(NVM_DIR)/nvm.sh ] && \. $(NVM_DIR)/nvm.sh && NODE_ENV=$(NODE_ENV) npm)
 
 runCheck: runBuild
 	$(NPM) run lint
