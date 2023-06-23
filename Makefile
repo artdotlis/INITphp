@@ -45,7 +45,7 @@ setupNode:
 
 setupComposer:
 	php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-	[ $(shell sha384sum composer-setup.php | cut -f 1 -d ' ') == 'e21205b207c3ff031906575712edab6f13eb0b361f2085f1f1237b7126d785e826a450292b6cfd1d64d92e6563bbde02' ] \
+	[ `sha384sum composer-setup.php | cut -f 1 -d " "` == "e21205b207c3ff031906575712edab6f13eb0b361f2085f1f1237b7126d785e826a450292b6cfd1d64d92e6563bbde02" ] \
 	|| echo -e "\033[0;31mInstaller corrupt - consider updating sha384\033[0m";
 	php composer-setup.php
 	php -r "unlink('composer-setup.php');"
