@@ -15,5 +15,8 @@ sed -i -E 's/\"\.\.\/\.\.\//"\.\//g' "$LTSC"
 cat "$COM" >"$LCOM"
 
 mkdir -p "$SCO"
+touch "$SCO/placeholder"
 mkdir -p "$LOG"
+touch "$LOG/placeholder"
 mkdir -p "$ASC"
+touch "$ASC/placeholder"

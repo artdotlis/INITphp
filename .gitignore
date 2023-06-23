@@ -2,7 +2,7 @@
 
 docs/
 extra/
-assets/**/placeholder.txt
+assets/**/placeholder
 public/
 configs/src/
 src/initphp/js/
