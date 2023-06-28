@@ -32,7 +32,7 @@ function getMode() {
 const config = {
     target: 'web',
     resolve: {
-        extensions: [".tsx", ".ts", "js"],
+        extensions: [".tsx", ".ts", ".js"],
         alias: {
             '@initphp/src': Path.resolve(process.cwd(), 'src/initphp/ts/'),
             '@initphp/root': Path.resolve(process.cwd(), 'src/initphp/'),
