@@ -84,9 +84,9 @@
         ],
         "*src/initphp/php/**/*.php": [
             "phpstan analyze -c ./configs/dev/phpstan.neon",
-            "phpcbf --standard=./configs/dev/phpcs.xml -p",
-            "phpcs --extensions=php,inc,lib,module,info --standard=./configs/dev/phpcs.xml -p",
-            "phpinsights analyse -c ./configs/dev/phpinsights.php --fix -n"
+            "phpinsights analyse -c ./configs/dev/phpinsights.php --fix -n",
+            "sh bin/wrap/just_run.sh phpcbf --standard=./configs/dev/phpcs.xml -p",
+            "phpcs --extensions=php,inc,lib,module,info --standard=./configs/dev/phpcs.xml"
         ]
     },
     "config": {
