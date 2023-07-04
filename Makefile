@@ -3,6 +3,7 @@ NODE=18
 NVMV=0.39.3
 
 PHP_SRC=src/initphp/php/
+VENDOR=src/initphp/php/vendor
 PCO=src/initphp/ts/configs/project.js
 COM_BIN=$(HOME)/.local/bin/composer
 NVM_DIR=$(HOME)/.nvm
@@ -17,7 +18,7 @@ POST=echo "no post in production"
 endif
 NPM=[ -s $(NVM_DIR)/nvm.sh ] && \. $(NVM_DIR)/nvm.sh && NODE_ENV=$(NODE_ENV) npm
 COMPOSER=COMPOSER=$(shell pwd)/configs/dev/composer.json $(COM_BIN)
-export PATH := $(PATH):$(shell pwd)/$(PHP_SRC)vendor/bin
+export PATH := $(PATH):$(shell pwd)/$(VENDOR)/bin
 
 dev: actDev setup
 	$(COMPOSER) install -d $(PHP_SRC) 
@@ -50,6 +51,7 @@ setupComposer:
 	php composer-setup.php
 	php -r "unlink('composer-setup.php');"
 	mv composer.phar $(COM_BIN)
+	rm -rf $(VENDOR)
 
 setup: setupNode setupComposer
 	git lfs install
@@ -94,6 +96,7 @@ runBuild:
 
 runUpdate:
 	$(NPM) update
+	rm -rf $(VENDOR)
 	$(COMPOSER) update -d $(PHP_SRC) 
 
 commit: 
