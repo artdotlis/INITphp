@@ -7,8 +7,8 @@ dnf clean all && rm -rf /var/cache/dnf
 update-ca-trust enable
 update-ca-trust
 dnf upgrade -y
-dnf config-manager --set-enabled powertools
 dnf -y install epel-release
+dnf config-manager --set-enabled powertools
 crb enable
 dnf -y install dnf-plugins-core
 dnf upgrade --refresh -y
