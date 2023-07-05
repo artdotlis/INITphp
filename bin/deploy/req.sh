@@ -15,5 +15,5 @@ dnf -y install php-cli
 # extensions
 dnf -y install php-opcache php-zip php-intl \
     php-bcmath php-json php-mbstring php-xml php-dom \
-    php-pdo php-mysqlnd php-pgsql
+    php-pdo php-mysqlnd php-pgsql php-pdo_mysql php-pdo_pgsql
 echo "php installed"
