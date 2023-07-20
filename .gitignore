@@ -1,10 +1,10 @@
 # ---> Custom
 
-docs/
-extra/
-public/
-configs/src/
-src/initphp/js/
+/docs/
+/extra/
+/public/
+/configs/src/
+/src/initphp/js/
 *.cache
 /tsconfig.json
 .VSCodeCounter/
