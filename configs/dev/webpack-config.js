@@ -174,6 +174,11 @@ const config = {
             },            
         ],
     },
+    performance: {
+        assetFilter: function (assetFilename) {
+            return !assetFilename.startsWith('..');
+        },
+    },
 };
 
 export default config;
