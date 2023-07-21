@@ -6,7 +6,7 @@ echo "installing requirements"
 dnf -y install git git-lfs make gcc-c++ findutils wget unzip
 echo "requirements installed"
 echo "install php"
-dnf -y install dnf-utils https://mirror.dogado.de/remi/enterprise/remi-release-8.rpm && dnf -y update
+dnf -y install zlib gzip dnf-utils https://mirror.dogado.de/remi/enterprise/remi-release-8.rpm && dnf -y update
 dnf -y remove php
 dnf -y remove php*
 dnf -y module reset php

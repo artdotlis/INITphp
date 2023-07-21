@@ -9,6 +9,8 @@ use Twig\Loader\FilesystemLoader;
 
 use function initphp\server\configs\is_production_build;
 use function initphp\server\path\get_twig_html;
+use function Safe\ob_end_flush;
+use function Safe\ob_start;
 
 final class Bootstrap
 {
@@ -34,10 +36,18 @@ final class Bootstrap
     public function init(): void
     {
         if (is_production_build()) {
-            header("Content-Security-Policy: default-src 'self'");
+            header(
+                'Content-Security-Policy:' . implode(';', [
+                    "img-src 'self' data:",
+                    "font-src 'self' data:",
+                    "default-src 'self';",
+                ])
+            );
         }
         header('Cache-Control: max-age=86400;');
-        header('Encoding: UTF-8');
+        header('Content-Encoding: gzip;');
+        ob_start(ob_gzhandler(...));
         echo $this->twig->render('index.html', ['bootstrap_out' => 'hello world!']);
+        ob_end_flush();
     }
 }
