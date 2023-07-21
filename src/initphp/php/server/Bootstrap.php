@@ -11,6 +11,7 @@ use function initphp\server\configs\is_production_build;
 use function initphp\server\path\get_twig_html;
 use function Safe\ob_end_flush;
 use function Safe\ob_start;
+use function Safe\preg_match;
 
 final class Bootstrap
 {
@@ -35,6 +36,7 @@ final class Bootstrap
 
     public function init(): void
     {
+        $toComp = $_SERVER['HTTP_ACCEPT_ENCODING'];
         if (is_production_build()) {
             header(
                 'Content-Security-Policy:' . implode(';', [
@@ -45,8 +47,11 @@ final class Bootstrap
             );
         }
         header('Cache-Control: max-age=86400;');
-        header('Content-Encoding: gzip;');
-        ob_start(ob_gzhandler(...));
+        ob_start();
+        if (preg_match('/(,|\s|^)gzip(,|\s|$)/', $toComp) === 1) {
+            header('Content-Encoding: gzip;');
+            ob_start(ob_gzhandler(...));
+        }
         echo $this->twig->render('index.html', ['bootstrap_out' => 'hello world!']);
         ob_end_flush();
     }
