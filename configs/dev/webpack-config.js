@@ -78,7 +78,7 @@ const config = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            filename: 'html/index.html',
+            filename: '../twig/index.html',
             template: 'src/initphp/html/twig/index.html',
             chunks: ['index']
         }),
@@ -176,7 +176,7 @@ const config = {
     },
     performance: {
         assetFilter: function (assetFilename) {
-            return !assetFilename.startsWith('..');
+            return !assetFilename.match(/^\.\.[\\/](?!twig)/);
         },
     },
 };

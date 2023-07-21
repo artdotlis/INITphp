@@ -8,6 +8,7 @@ use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
 use function initphp\server\configs\is_production_build;
+use function initphp\server\path\get_twig_html;
 
 final class Bootstrap
 {
@@ -18,7 +19,7 @@ final class Bootstrap
 
     private function __construct()
     {
-        $loader = new FilesystemLoader('./html');
+        $loader = new FilesystemLoader(get_twig_html());
         $this->twig = new Environment($loader, ['cache' => '/tmp/twig_cache/']);
     }
 

@@ -20,6 +20,11 @@ function get_build_config(): string
     return merge_path(__DIR__, [...get_prefix(), 'configs', 'project.js']);
 }
 
+function get_twig_html(): string
+{
+    return merge_path(__DIR__, [...get_prefix(), 'twig']);
+}
+
 /** @param array<string> $path_el */
 function merge_path(string $root, array $path_el): string
 {
