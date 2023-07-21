@@ -31,7 +31,8 @@
         "ts-loader": "^9.4",
         "typescript": ">=5.0 <5.1",
         "webpack": "^5.83",
-        "webpack-cli": "^5.1"
+        "webpack-cli": "^5.1",
+        "purgecss-webpack-plugin": "^5.0"
     },
     "devDependencies": {
         "@commitlint/cli": "^17.6",

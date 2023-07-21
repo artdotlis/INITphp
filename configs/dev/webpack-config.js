@@ -4,6 +4,8 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import Glob from 'glob';
+import { PurgeCSSPlugin } from 'purgecss-webpack-plugin';
 
 function createCopyPath() {
     const path = [];
@@ -58,6 +60,12 @@ const config = {
                     test: /[\\/]node_modules[\\/]/,
                     chunks: "all"
                 },
+                style: {
+                    name: 'style',
+                    test: /(?<!\.module)\.css$/,
+                    chunks: 'all',
+                    enforce: true
+                }
             },
         },
         minimize: PrConf.production,
@@ -76,6 +84,10 @@ const config = {
         }),
         new MiniCssExtractPlugin({
             filename: 'css/[name].[chunkhash].bundle.css',
+        }),
+        new PurgeCSSPlugin({
+            paths: Glob.sync(`${process.cwd()}/src/initphp/**/*`,  { nodir: true }),
+            only: ["vendor", "style"],
         }),
         new CopyPlugin({
             patterns: createCopyPath(),
