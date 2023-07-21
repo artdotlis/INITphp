@@ -18,7 +18,7 @@ POST=echo "no post in production"
 endif
 NPM=[ -s $(NVM_DIR)/nvm.sh ] && \. $(NVM_DIR)/nvm.sh && NODE_ENV=$(NODE_ENV) npm
 COMPOSER=COMPOSER=$(shell pwd)/configs/dev/composer.json $(COM_BIN)
-export PATH := $(PATH):$(shell pwd)/$(VENDOR)/bin
+export PATH:=$(PATH):$(shell pwd)/$(VENDOR)/bin
 
 dev: actDev setup
 	$(COMPOSER) install -d $(PHP_SRC) 

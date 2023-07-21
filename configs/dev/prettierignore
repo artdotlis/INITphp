@@ -3,6 +3,7 @@ node_modules
 package-lock.json
 **/src/initphp/js
 **/src/initphp/php
+**/src/initphp/html/twig
 public
 extra
 webpack-config.js

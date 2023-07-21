@@ -5,7 +5,11 @@ const PROJECT = {
         initphp: {
             config: {
                 from: './configs/src/initphp/',
-                to: 'configs/',
+                to: '../configs/',
+            },
+            build: {
+                from: './src/initphp/ts/configs/project.js',
+                to: '../configs/',
             },
             logos: {
                 from: './extra/initphp/logos',
@@ -17,7 +21,7 @@ const PROJECT = {
             },
             php: {
                 from: './src/initphp/php/',
-                to: '',
+                to: '..',
             },
         },
     },

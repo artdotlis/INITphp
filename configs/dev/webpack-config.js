@@ -46,13 +46,20 @@ const config = {
         index: './src/initphp/ts/index.ts',
     },
     output: {
-        filename: 'js/[name].bundle.js',
-        path: Path.resolve(process.cwd(), 'public/initphp/'),
+        filename: 'js/[name].[chunkhash].bundle.js',
+        path: Path.resolve(process.cwd(), 'public/initphp/public'),
         publicPath: '/',
     },
     optimization: {
         runtimeChunk: 'single',
-        splitChunks: { chunks: 'all' },
+        splitChunks: { 
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    chunks: "all"
+                },
+            },
+        },
         minimize: PrConf.production,
         minimizer: [
             new TerserPlugin({
@@ -64,11 +71,11 @@ const config = {
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'html/index.html',
-            template: './src/initphp/html/index.html',
-            chunks: ['runtime', 'index'],
+            template: 'src/initphp/html/twig/index.html',
+            chunks: ['index']
         }),
         new MiniCssExtractPlugin({
-            filename: './css/[name].[fullhash].bundle.css',
+            filename: 'css/[name].[chunkhash].bundle.css',
         }),
         new CopyPlugin({
             patterns: createCopyPath(),

@@ -26,7 +26,10 @@
         "psr-4": {
             "initphp\\": "."
         },
-        "files": []
+        "files": [
+            "server/path/const_path.php",
+            "server/configs/conf_main.php"
+        ]
     },
     "extra": {},
     "scripts": {}

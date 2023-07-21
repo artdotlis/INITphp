@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace initphp;
+namespace initphp\public;
 
-require_once 'vendor/autoload.php';
+require_once '../vendor/autoload.php';
 
 use initphp\server\Bootstrap;
 

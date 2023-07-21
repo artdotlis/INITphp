@@ -7,6 +7,8 @@ namespace initphp\server;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
+use function initphp\server\configs\is_production_build;
+
 final class Bootstrap
 {
     private readonly Environment $twig;
@@ -30,6 +32,11 @@ final class Bootstrap
 
     public function init(): void
     {
+        if (is_production_build()) {
+            header("Content-Security-Policy: default-src 'self'");
+        }
+        header('Cache-Control: max-age=86400;');
+        header('Encoding: UTF-8');
         echo $this->twig->render('index.html', ['bootstrap_out' => 'hello world!']);
     }
 }
