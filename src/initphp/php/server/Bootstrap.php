@@ -9,6 +9,7 @@ use Twig\Loader\FilesystemLoader;
 
 use function initphp\server\configs\is_production_build;
 use function initphp\server\path\get_twig_html;
+use function Safe\ini_set;
 use function Safe\ob_end_flush;
 use function Safe\ob_start;
 use function Safe\preg_match;
@@ -50,6 +51,7 @@ final class Bootstrap
         ob_start();
         if (preg_match('/(,|\s|^)gzip(,|\s|$)/', $toComp) === 1) {
             header('Content-Encoding: gzip;');
+            ini_set('zlib.output_compression_level', '5');
             ob_start(ob_gzhandler(...));
         }
         echo $this->twig->render('index.html', ['bootstrap_out' => 'hello world!']);
