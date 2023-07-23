@@ -38,6 +38,7 @@ final class Bootstrap
     public function init(): void
     {
         $toComp = $_SERVER['HTTP_ACCEPT_ENCODING'];
+        ob_start();
         if (is_production_build()) {
             header(
                 'Content-Security-Policy:' . implode(';', [
@@ -48,7 +49,7 @@ final class Bootstrap
             );
         }
         header('Cache-Control: max-age=86400;');
-        ob_start();
+        header('Encoding: UTF-8');
         if (preg_match('/(,|\s|^)gzip(,|\s|$)/', $toComp) === 1) {
             header('Content-Encoding: gzip;');
             ini_set('zlib.output_compression_level', '5');
