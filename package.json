@@ -32,7 +32,8 @@
         "typescript": ">=5.0 <5.1",
         "webpack": "^5.83",
         "webpack-cli": "^5.1",
-        "purgecss-webpack-plugin": "^5.0"
+        "purgecss-webpack-plugin": "^5.0",
+        "glob": "^10.3"
     },
     "devDependencies": {
         "@commitlint/cli": "^17.6",
