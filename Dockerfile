@@ -15,7 +15,8 @@ RUN apk --no-cache update && apk add --upgrade apk-tools && apk upgrade --availa
     php82-opcache php82-zip php82-intl \
     php82-bcmath php82-mbstring php82-simplexml php82-dom\
     php82-pdo php82-mysqlnd php82-pgsql \
-    php82-pdo_mysql php82-pdo_pgsql
+    php82-pdo_mysql php82-pdo_pgsql \
+    zlib gzip
 
 RUN mkdir -p /run/php-fpm/ && chown nginx:nginx /run/php-fpm
 
