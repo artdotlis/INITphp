@@ -1,0 +1,17 @@
+filesToShow: 10
+
+minScoreToShow: 0.5
+
+maxScoreThreshold: null
+
+parallelJobs: 2
+
+filesToIgnore:
+    - src/initphp/php/vendor/*
+
+fileExtensions:
+    - php
+
+vcs: git
+
+cachePath: ../../.churn.cache

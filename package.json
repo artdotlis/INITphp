@@ -68,6 +68,7 @@
         "lint": "lint-staged",
         "lint:phpinsights": "phpinsights analyse -c ./configs/dev/phpinsights.php --fix -n src/initphp/php/",
         "lint:phpstan": "phpstan analyze -c ./configs/dev/phpstan.neon src/initphp/php/",
+        "lint:phpchurn": "churn run --configuration=configs/dev/churn.yml src",
         "lint:prune": "ts-prune -i src/initphp/ts",
         "lint:commit": "commitlint -g configs/dev/commitlint.cjs --edit ${1}",
         "lint:shell": "shellcheck bin/deploy/*.sh bin/*.sh",
@@ -88,7 +89,8 @@
             "phpstan analyze -c ./configs/dev/phpstan.neon",
             "phpinsights analyse -c ./configs/dev/phpinsights.php --fix -n",
             "sh bin/wrap/just_run.sh phpcbf --standard=./configs/dev/phpcs.xml -p",
-            "phpcs --extensions=php,inc,lib,module,info --standard=./configs/dev/phpcs.xml"
+            "phpcs --extensions=php,inc,lib,module,info --standard=./configs/dev/phpcs.xml",
+            "churn run --configuration=configs/dev/churn.yml"
         ]
     },
     "config": {

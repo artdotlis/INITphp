@@ -8,6 +8,7 @@
 *.cache
 /tsconfig.json
 .VSCodeCounter/
+.churn.cache
 
 # ---> Composer
 composer.phar

@@ -84,6 +84,7 @@ runCheck: runBuild
 	$(NPM) run lint:shell
 	$(NPM) run lint:phpstan
 	$(NPM) run lint:phpinsights
+	$(NPM) run lint:phpchurn
 
 runDocs:
 	echo "TODO"
