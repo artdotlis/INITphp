@@ -4,8 +4,7 @@
     "description": "Initial bare-bone PHP + TypeScript project.",
     "main": "src/initphp/ts/index.ts",
     "engines": {
-        "node": "^18.12",
-        "npm": "^9.1"
+        "node": "^18.12"
     },
     "author": {
         "name": "Artur Lissin",

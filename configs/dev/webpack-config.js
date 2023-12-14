@@ -62,7 +62,7 @@ const config = {
                 },
                 style: {
                     name: 'style',
-                    test: /(?<!\.module)\.css$/,
+                    test: /(?<!\.module|[\\/]node_modules[\\/].*)\.css$/,
                     chunks: 'all',
                     enforce: true
                 }
