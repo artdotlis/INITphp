@@ -21,7 +21,7 @@ services:
             dockerfile: .devcontainer/php.Dockerfile
         volumes:
             - static-content:/var/www/:ro
-            - ./configs/dev/api_nginx.conf:/etc/nginx/conf.d/default.conf
+            - ./configs/dev/nginx.conf:/etc/nginx/conf.d/default.conf
             - ./configs/dev/php_fpm.conf:/etc/php82/php-fpm.d/initphp.conf
         ports:
             - 8035:80
